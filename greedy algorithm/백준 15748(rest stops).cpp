@@ -27,8 +27,12 @@ void solution(const int& L,const int& N,const long long& Rf,const long long& Rb)
 	long long ans = 0, curRestDistance = 0;;								//답, 쉰장소
 	sort(v.begin(), v.end(), comp);
 	for (int i = 0; i < N; i++) {
-		if (curRestDistance < v[i].first) {
-			long long differDistance = v[i].first - curRestDistance;		//전에 쉰 장소에서 베시가 존 기다리므로 
+		if (curRestDistance < v[i].first) {											//만족도대로 정렬을 했으므로, 그다음 만족도가 높은곳을 이미 지나쳤을 수도 있으므로
+																					//지나쳤다면 무시해야한다.
+
+			long long differDistance = v[i].first - curRestDistance;				//전에 쉰 장소에서 베시가 존을 기다렸다 같이 출발하므로
+																					//시간차이 계산할 때 전에 쉰 곳과 현재 장소의 위치만큼만 계산해야한다
+
 			long long differSecond = differDistance* Rf - differDistance* Rb;		//제일 tastiness가 높은 곳에 도달 했을 때, 그 둘의 시간 차이
 			ans += differSecond * v[i].second;
 			curRestDistance = v[i].first;
@@ -45,4 +49,4 @@ int main() {
 
 	input(L,N,Rf,Rb);
 	solution(L,N,Rf,Rb);
-}
+}				
