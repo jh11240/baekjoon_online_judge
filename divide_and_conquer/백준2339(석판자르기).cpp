@@ -1,5 +1,5 @@
 #include<iostream>			//3 
-							////출처 https://underside.tistory.com/76
+							////https://underside.tistory.com/76
 
 using namespace std;
 
@@ -23,7 +23,7 @@ int solution(int x0, int y0, int x1, int y1, bool slice) {		//slice 참이면 �
 			}
 		}
 	}
-	//보석 하나, 불순물 0이면 경우의 수 한개 이므로 return
+	//보석 하나, 불순물 0이면 경우의 수 한개 이므로 return 1
 	if (impurities == 0 && jewelry == 1)
 		return 1;
 	//보석이 하나, 불순물 하나면 경우의 수 0(석판엔 무조건 하나의 보석이 있어야 하므로)
@@ -91,15 +91,18 @@ int solution(int x0, int y0, int x1, int y1, bool slice) {		//slice 참이면 �
 
 }
 
-void input(int& amount) {	
+//입력값 받는 함수
+void input(int& amount) {			
 	int jew=0, imp = 0;
 	cin >> amount;
 	for (int i = 0; i < amount; i++) {
 		for (int j = 0; j < amount; j++) {
 			cin >> arr[i][j];
-			if (arr[i][j] == 1) {	//불순물일때
+			//불순물일 때
+			if (arr[i][j] == 1) {	
 				imp++;
 			}
+			//보석일 때
 			else if(arr[i][j]==2)
 			{
 				jew++;
@@ -107,13 +110,16 @@ void input(int& amount) {
 		}
 	}
 
-
+	//보석 하나만 있다면 나눌 필요없으므로
 	if (imp == 0 && jew == 1) {
 		cout << 1;
 	}
 	else {
+		//가로로 나눳을 때 답
 		int resultA = solution(0, 0, amount, amount, false);
+		//세로로 나눳을 때 답
 		int resultB = solution(0, 0, amount, amount, true);
+		//답이 0이면 나눌 수 있는 경우의 수가 없으므로
 		if (resultA + resultB == 0) {
 			cout << -1;
 		}
