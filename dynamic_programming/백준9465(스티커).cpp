@@ -39,8 +39,8 @@ void solution(int& amountArr) {
 	dp[0][2]=inputArr[1][0];
 	for (int i = 1; i < amountArr; i++) {
 		dp[i][0] += dp[i - 1][0] + max(inputArr[0][i], inputArr[1][i]);
-		dp[i][1] += dp[i-1][2]+inputArr[0][i];
-		dp[i][2] += dp[i-1][1]+inputArr[1][i];
+		dp[i][1] += dp[i-1][2]+inputArr[1][i];
+		dp[i][2] += dp[i-1][1]+inputArr[0][i];
 	}
 	 int ans=max(dp[amountArr-1][0],max(dp[amountArr-1][1],dp[amountArr-1][2]));
 	 cout << ans<<'\n';
