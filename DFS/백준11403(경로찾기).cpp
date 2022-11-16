@@ -52,6 +52,20 @@ public:
 		}
 	}
 
+	//맨처음 u에 도달했을때 u노드에 visited체크안하는 함수( 위의 dfs함수 간결히 작성)
+	void dfs(int u) {
+		//u와 인접한 노드들 elem
+		for (int elem : adj[u]) {
+			//elem에 방문 안했다면
+			if (!visited[elem]) {
+				//방문함 체크
+				visited[elem] = true;
+				//elem노드에 대해 재귀
+				dfs(elem);
+			}
+		}
+	}
+
 };
 graph* g;
 void input() {
@@ -73,7 +87,12 @@ void solution() {
 	for (int i = 0; i < N; i++) {
 			//매 반복문마다 방문 배열을 false로 초기화
 			fill(g->visited.begin(), g->visited.end(), false);
-			g->dfs(i,i,true);
+			
+			//클래스의 위 dfs함수 사용
+			//g->dfs(i,i,true);
+
+			//클래스의 아래 dfs함수 사용
+			g->dfs(i);
 			//i번째일때 방문배열을 다 출력
 			for (int j = 0; j < N; j++) {
 				cout << g->visited[j]<<' ';
