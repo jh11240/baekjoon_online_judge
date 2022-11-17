@@ -5,14 +5,14 @@ using namespace std;
 void solution(int students);
 
 int cycleCnt=0;
-vector<vector<int>> adj;
+vector<int> adj;
 vector<int>visited;
 vector<int>finished;
 
 void init(int students) {
 	cycleCnt = 0;
 	adj.clear();
-	adj.resize(students+1);
+	adj.push_back(-1);
 	finished.resize(students+1);
 	visited.resize(students+1);
 	fill(finished.begin(), finished.end(),false);
@@ -25,7 +25,7 @@ void dfs(int Nodes) {
 			visited[Nodes] = true;
 			//완결난 컴퍼넌트가 아니라면
 			if (!finished[Nodes]) {
-				dfs(adj[Nodes][0]);
+				dfs(adj[Nodes]);
 			}
 		}
 		//해당 노드를 방문 했지만
@@ -33,7 +33,7 @@ void dfs(int Nodes) {
 			//완결난 컴퍼넌트 아니라면 싸이클 이므로
 			if (!finished[Nodes]) {
 				//싸이클인 지점부터 자신까지 올때까지 cycleCNt증가시킴
-				for (int tmp = Nodes; adj[tmp][0] != Nodes; tmp = adj[tmp][0])
+				for (int tmp = Nodes; adj[tmp] != Nodes; tmp = adj[tmp])
 					cycleCnt++;
 				//자기 자신 지점도 포함해줌
 				cycleCnt++;
@@ -54,7 +54,7 @@ void input() {
 		init(amountStudents);
 		for (int j = 1; j <= amountStudents; j++) {
 			cin >> studentsNum;
-			adj[j].push_back(studentsNum);
+			adj.push_back(studentsNum);
 		}
 		solution(amountStudents);
 	}
@@ -70,7 +70,7 @@ void solution(int students) {
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
 	input();
 }
