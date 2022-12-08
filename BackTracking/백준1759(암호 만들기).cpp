@@ -69,12 +69,7 @@ void Backtracking(int cur, int consonant, int vowel) {
 		Backtracking(cur + 1, consonant + 1, vowel);
 	}
 	//매번 dfs가 끝나고 돌아오면 다시 이노드를 방문할 수 있으므로 해당 cur인덱스의 문자를 제거해준다. 
-	for (auto iter = Ans.begin(); iter != Ans.end(); ++iter) {
-		if (*iter == Letters[cur]) {
-			Ans.erase(iter);
-			break;
-		}
-	}
+	Ans.pop_back();
 }
 
 void Solution() {
