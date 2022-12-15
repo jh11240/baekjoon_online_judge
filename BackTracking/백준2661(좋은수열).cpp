@@ -53,7 +53,7 @@ void MakeNum(vector<char>& totNum,int length) {
 			return;
 	}
 	for (int i = 1; i <= 3; i++) {
-		totNum.push_back(i);
+		totNum.push_back(i+'0');
 		MakeNum(totNum, length + 1);
 		if (didPrinted) return;
 		totNum.pop_back();
