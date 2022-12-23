@@ -22,8 +22,9 @@ void Input() {
 }
 
 int main() {
-	//입출력관련해서 시간 더 줄이기
+	//입출력관련해서 시간 줄이기
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
+	
 	Input();
 }
