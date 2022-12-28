@@ -23,6 +23,7 @@ void Input() {
 	cin >> q ;
 	for (int i = 0; i < q; i++) {
 		cin >> alphabet >> l >> r;
+		//l을 포함해야하므로 l-1 번째부터 r번째 까지
 		cout << alphabetsInEachQuery[r + 1][alphabet - 'a'] - alphabetsInEachQuery[l][alphabet - 'a'] << '\n';
 	}
 
