@@ -5,8 +5,6 @@ using namespace std;
 //입력값 받는 배열
 int sudoku[9][9];
 
-//0인 칸 방문여부 저장하는 배열
-bool visited[9][9];
 //답 출력했다면 바로 재귀 다 끊을 수 있도록
 bool PrintedAnswer = false;
 
