@@ -5,6 +5,7 @@
         "stack": "cpp",
         "utility": "cpp",
         "xutility": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "xiosbase": "cpp"
     }
 }
