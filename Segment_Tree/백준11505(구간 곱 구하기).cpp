@@ -9,6 +9,7 @@ const int Modular = 1'000'000'007;
 //수의 갯수, 변경 횟수, 구간의 곱 구하는 횟수 , 첫번째 리프노드의 인덱스
 int N,M,K,FirstLeafNodeIndex=1;
 
+//목표구간 [targetL,targetR] 현재 탐색구간 [curL, curR] 현재 보고있는 노드 nodeNum
 long long Mul(int targetL, int targetR, int nodeNum, int curL, int curR) {
 	if (targetL > curR || targetR < curL) return 1;
 	else if (targetL <= curL && targetR >= curR) return Arr[nodeNum]%Modular;
