@@ -25,7 +25,7 @@ void Solution() {
 	for (int i = 0; i <= 20; i++) {
 		fill(minDist[i], minDist[i] + MAX, INF);
 	}
-	//이렇게 초기화시 오류남 why? 찾아보자
+	//이렇게 초기화시 오류남 why? 찾아보자 -> 멍청아 minDist열값 최대가 1만인데 10001까지 초기화시키면 어떡하냐 멍청아
 	//fill(&minDist[0][0], &minDist[20][10'001], INF);
 	//fill(&visited[0][0], &visited[20][10'001], false);
 	minDist[K][0] = 0;
