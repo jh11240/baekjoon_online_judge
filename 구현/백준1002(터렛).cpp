@@ -14,6 +14,7 @@ int main(){
         //두원의 중심 사이 거리
         dist = sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 
+        //포개질 때 
         if(dist==0 && r1==r2) cout<<-1<<"\n";
         //두 원이 떨어져 있으면
         else if(r1+r2<dist) cout<<0<<"\n";
