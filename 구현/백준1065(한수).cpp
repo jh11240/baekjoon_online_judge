@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-bool IsHan(int N) {
+bool IsHanNum(int N) {
     int cur = N, prev = -1, diff = -1000;
     while (cur != 0) {
         //처음 시작일 때
@@ -32,7 +32,7 @@ int main() {
     cin >> N;
 
     for (int i = 1; i <= N; i++) {
-        if (IsHan(i)) Ans++;
+        if (IsHanNum(i)) Ans++;
     }
     cout << Ans;
 }
