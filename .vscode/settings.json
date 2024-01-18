@@ -6,6 +6,7 @@
         "utility": "cpp",
         "xutility": "cpp",
         "queue": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "vector": "cpp"
     }
 }
