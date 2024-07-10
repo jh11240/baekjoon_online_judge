@@ -7,12 +7,6 @@ int N;
 int dp[1'000'002];
 //value is prev num of idx
 int prevNum[1'000'002];
-int Dp(int idx){
-    int*ret = &dp[idx];
-    if(*ret != -1) return *ret;
-    if(idx<1) return 0;
-
-}
 
 int main(){
     cin>>N;
